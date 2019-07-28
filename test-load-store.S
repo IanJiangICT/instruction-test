@@ -94,6 +94,70 @@ main:
     ldrsw x7, [x1, #8]
     ldr w7, hello_msg       // Load (literal)
     ldr x7, hello_msg
+    ldxr w8, [x1]           // Load Exclusive
+    ldxr x8, [x1]
+    ldxr w8, [x1, #0]
+    ldxr x8, [x1, #0]
+    ldxrh w8, [x1]
+    ldxrh w8, [x1, #0]
+    ldxrb w8, [x1]
+    ldxrb w8, [x1, #0]
+    ldaxr w8, [x1]           // Load-Acquire Exclusive
+    ldaxr x8, [x1]
+    ldaxr w8, [x1, #0]
+    ldaxr x8, [x1, #0]
+    ldaxrh w8, [x1]
+    ldaxrh w8, [x1, #0]
+    ldaxrb w8, [x1]
+    ldaxrb w8, [x1, #0]
+    ldxp w9, w8, [x1]      // Load Exclusive Pair
+    //ldxp x9, x8, [x1]
+    ldxp w9, w8, [x1, #0]
+    //ldxp x9, x8, [x1, #0]
+    ldaxp w9, w8, [x1]
+    //ldaxp x9, x8, [x1]
+    ldaxp w9, w8, [x1, #0]
+    //ldaxp x9, x8, [x1, #0]
+    ldar w10, [x1]           // Load-Acquire
+    ldar x10, [x1]
+    ldar w10, [x1, #0]
+    ldar x10, [x1, #0]
+    ldarh w10, [x1]
+    ldarh w10, [x1, #0]
+    ldarb w10, [x1]
+    ldarb w10, [x1, #0]
+    //ldapr w10, [x1]           // Load-Acquire RCpc
+    //ldapr x10, [x1]
+    //ldapr w10, [x1, #0]
+    //ldapr x10, [x1, #0]
+    //ldaprh w10, [x1]
+    //ldaprh w10, [x1, #0]
+    //ldaprb w10, [x1]
+    //ldaprb w10, [x1, #0]
+    stxr w11, w8, [x1]           // Store Exclusive
+    stxr w11, x8, [x1]
+    stxr w11, w8, [x1, #0]
+    stxr w11, x8, [x1, #0]
+    stxrh w11, w8, [x1]
+    stxrh w11, w8, [x1, #0]
+    stxrb w11, w8, [x1]
+    stxrb w11, w8, [x1, #0]
+    stlr w12, [x1]           // Store-Release 
+    stlr x12, [x1]
+    stlr w12, [x1, #0]
+    stlr x12, [x1, #0]
+    stlrh w12, [x1]
+    stlrh w12, [x1, #0]
+    stlrb w12, [x1]
+    stlrb w12, [x1, #0]
+    stxp w13, w8, w9, [x1]      // Store Exclusive pair
+    stxp w13, w8, w9, [x1, #0]
+    //stxp w13, x8, x9, [x1]
+    //stxp w13, x8, x9, [x1, #0]
+    stlxp w13, w8, w9, [x1]      // Store-Release Exclusive pair
+    stlxp w13, w8, w9, [x1, #0]
+    //stlxp w13, x8, x9, [x1]
+    //stlxp w13, x8, x9, [x1, #0]
     ret
 
 .section .rodata
@@ -102,7 +166,7 @@ before_msg:
 	.asciz "Before hello\n\0"
 .balign 8
 hello_msg:
-	.asciz "!!HELLO WORLD!!\n\0"
+	.asciz "!!HELLO WORLD!! and this is a long message. and this is a long message.  and this is a long message.  and this is a long message.  and this is a long message.  \n\0"
 .balign 8
 after_msg:
 	.asciz "After hello\n\0"
