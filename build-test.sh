@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TOOL_DIR=/home/jzy/gem5/arm64-tools/gcc-linux-gcc/bin
+TOOL_DIR=/home/jzy/gem5/arm64-tools/gcc-linux-gnu/bin
 AS=$TOOL_DIR/aarch64-linux-gnu-as
 GCC=$TOOL_DIR/aarch64-linux-gnu-gcc
 OBJDUMP=$TOOL_DIR/aarch64-linux-gnu-objdump
