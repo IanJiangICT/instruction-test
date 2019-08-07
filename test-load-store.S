@@ -29,7 +29,10 @@ main:
     ldr w5, [x1, w8, uxtw] // Load register (register offset)
     ldr w5, [x1, x8, sxtx] 
     ldr x5, [x1, w8, sxtw] 
-    ldr x5, [x1, x8, lsl #3] 
+    ldr w5, [x1, x8, lsl #2]
+    ldr x5, [x1, x8, lsl #3]
+    str w5, [x1, x8, lsl #2]
+    str x5, [x1, x8, lsl #3]
     ldr x5, [x1, x8] 
     ldr w5, [x1, x8]
     ldrb w5, [x1, x8]
