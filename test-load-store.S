@@ -26,6 +26,9 @@ main:
     negs  w2, w4, asr #4 // (gdb) b NegXSRegCc # to locate here 
     adrp x1, hello_msg
     add x1, x1, :lo12:hello_msg
+    prfm pldl1keep, [x1]
+    prfm pldl1keep, [x1, #32]
+    prfm pldl1keep, hello_msg
     ldr w5, [x1, w8, uxtw] // Load register (register offset)
     ldr w5, [x1, x8, sxtx] 
     ldr x5, [x1, w8, sxtw] 
