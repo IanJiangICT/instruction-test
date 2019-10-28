@@ -1,2 +1,2 @@
-# inst-test-armv8
-Test tools for ARMv8 instructions
+# Instruction Test
+Test tools for assembly instructions.
