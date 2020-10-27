@@ -3,15 +3,11 @@
 .balign 4
 
 _start:
-	lui x5, 6
-	csrs mstatus, x5
-	li x5, 8
-	csrs misa, x5
-	csrr x10, misa
-	li x5, 32
-	csrc misa, x5
-	csrr x10, misa
-	frflags x6
+1:	auipc ra, %pcrel_hi(hello_msg)
+	addi  ra, ra, %pcrel_lo(1b)
+	csrrs s4, frm, zero
+	frrm s6
+	csrrwi	t5,fcsr,2
 
 	nop
 	nop
