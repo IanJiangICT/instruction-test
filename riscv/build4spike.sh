@@ -12,7 +12,10 @@ GCC_FLAGS+=" -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles"
 GCC_FLAGS+=" -Tfor-spike.ld"
 #GCC_FLAGS+=" -Tfor-qemu.ld"
 $GCC $GCC_FLAGS $test_name.S -o $test_name
-$OBJDUMP -D $test_name > $test_name-dump.S
-
-ls -l $test_name*
-grep \<_start\>\: -rwn $test_name-dump.S -A 50
+if [ $? -eq 0 ] ; then
+	$OBJDUMP -D $test_name > $test_name-dump.S
+	ls -l $test_name*
+	grep \<_start\>\: -rwn $test_name-dump.S -A 50
+else
+	echo "Exit because of compiling error"
+fi
